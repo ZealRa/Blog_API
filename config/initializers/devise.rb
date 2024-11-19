@@ -92,7 +92,7 @@ Devise.setup do |config|
   # Does not affect registerable.
   # config.paranoid = true
   config.jwt do |jwt|
-    jwt.secret = ENV['JWT_SECRET_KEY']
+		jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
 	end
 
   # By default Devise will store the user in session. You can skip storage for
@@ -266,7 +266,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
